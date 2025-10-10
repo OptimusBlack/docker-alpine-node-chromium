@@ -2,6 +2,12 @@
 
 A lightweight Docker image based on Alpine Linux with Node.js 22 and Chromium browser for headless automation, web scraping, and testing. Supports Puppeteer.
 
+Pull from [docker hub](https://hub.docker.com/r/optimusblack/alpine-node-chromium/tags)
+
+```bash
+docker pull optimusblack/alpine-node-chromium:node22-alpine3.22-1.1
+```
+
 ## Features
 
 - 🐧 **Alpine Linux 3.22** - Minimal, secure base image
@@ -45,7 +51,7 @@ docker run -it --rm -v $(pwd):/app -w /app alpine-node-chromium node your-script
 ### Example Dockerfile Extension
 
 ```dockerfile
-FROM alpine-node-chromium
+FROM optimusblack/alpine-node-chromium:node22-alpine3.22-1.1
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
