@@ -11,3 +11,6 @@ RUN apk add --no-cache \
   ttf-freefont \
   font-noto-emoji \
   font-noto-cjk
+
+# Set environment variables for Puppeteer
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium-browser

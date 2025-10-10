@@ -1,6 +1,6 @@
 # Docker Alpine Node Chromium
 
-A lightweight Docker image based on Alpine Linux with Node.js 22 and Chromium browser for headless automation, web scraping, and testing.
+A lightweight Docker image based on Alpine Linux with Node.js 22 and Chromium browser for headless automation, web scraping, and testing. Supports Puppeteer.
 
 ## Features
 
