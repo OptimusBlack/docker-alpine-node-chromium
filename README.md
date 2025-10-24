@@ -53,17 +53,18 @@ docker run -it --rm -v $(pwd):/app -w /app alpine-node-chromium node your-script
 ```dockerfile
 FROM optimusblack/alpine-node-chromium:node22-alpine3.22-1.1
 
-# Create non-root user
-RUN addgroup -g 1001 -S nodejs && \
-    adduser -S nextjs -u 1001
-
 # Copy and install dependencies
 COPY package*.json ./
 RUN npm ci --only=production
 
 # Copy application code
 COPY . .
-RUN chown -R nextjs:nodejs /app
+
+# Add user for Puppeteer
+RUN addgroup -S nodejs && adduser -S -G nodejs nextjs \
+    && mkdir -p /home/nextjs/Downloads /app \
+    && chown -R nextjs:nodejs /home/nextjs \
+    && chown -R nextjs:nodejs /app
 
 USER nextjs
 CMD ["node", "index.js"]
